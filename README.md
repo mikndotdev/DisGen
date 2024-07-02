@@ -1,15 +1,15 @@
-# Elysia with Bun runtime
+# DisGen
 
-## Getting Started
-To get started with this template, simply paste this command into your terminal:
-```bash
-bun create elysia ./elysia-example
-```
+A simple API for generating images for use with your Discord bot.
 
-## Development
-To start the development server run:
-```bash
-bun run dev
-```
+## Documantation
+Read [here](https://docs.mikn.dev/solutions/disgen) to learn more about how to use the API.
 
-Open http://localhost:3000/ with your browser to see the result.
+## Selfhosting
+- This app requires Bun to run. You could manually run the app, or build an image with the provided Dockerfile.
+
+## Hosted version
+- A CDN accelerated, free to use publicly hosted version of the api is available on:<br>
+```https://disgen.mikandev.tech/```
+
+Images are cached and delivered through BunnyCDN, and the origin server is powered by autoscaling infrastructure from Fly.io
