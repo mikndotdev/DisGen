@@ -12,4 +12,4 @@ Read [here](https://docs.mikn.dev/solutions/disgen) to learn more about how to u
 - A CDN accelerated, free to use publicly hosted version of the api is available on:<br>
 ```https://disgen.mikandev.tech/```
 
-Images are cached and delivered through BunnyCDN, and the origin server is powered by autoscaling infrastructure from Fly.io
+Images are cached and delivered through BunnyCDN, and the origin server is powered by autoscaling infrastructure from Fly.io.
