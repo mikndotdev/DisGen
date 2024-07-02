@@ -44,8 +44,8 @@ app.get("/level", async ({ query, set }) => {
 	return levelImage;
 })
 
-app.listen(3001);
+app.listen(3000);
 
 console.log(
-	`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`,
+	`Server is running on ${app.server?.hostname}:${app.server?.port}`,
 );
