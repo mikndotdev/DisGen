@@ -44,7 +44,7 @@ app.get("/level", async ({ query, set }) => {
 	return levelImage;
 })
 
-app.listen(3000);
+app.listen(80);
 
 console.log(
 	`Server is running on ${app.server?.hostname}:${app.server?.port}`,
