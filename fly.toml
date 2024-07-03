@@ -9,10 +9,10 @@ primary_region = 'nrt'
 [build]
 
 [env]
-  PORT = '8080'
+  PORT = '80'
 
 [http_service]
-  internal_port = 3000
+  internal_port = 80
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true
