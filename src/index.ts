@@ -1,5 +1,6 @@
 import { Elysia } from "elysia";
 import { createLevel } from "./gen/level";
+import "dotenv/config";
 
 const app = new Elysia();
 
@@ -44,7 +45,8 @@ app.get("/level", async ({ query, set }) => {
 	return levelImage;
 })
 
-app.listen(80);
+const port = process.env.PORT || 80;
+app.listen(port);
 
 console.log(
 	`Server is running on ${app.server?.hostname}:${app.server?.port}`,
