@@ -1,7 +1,7 @@
 import { join } from "node:path";
 import { createCanvas, loadImage, GlobalFonts } from "@napi-rs/canvas";
 
-GlobalFonts.registerFromPath(join(__dirname, "../assets/HSR.ttf"), "HSR");
+GlobalFonts.registerFromPath(join(__dirname, "../assets/HSR.otf"), "HSR");
 
 export async function createLevel({
 	level,
