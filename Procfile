@@ -1,1 +1,1 @@
-web: curl -fsSL https://bun.sh/install | bash && bun start
+web: bun start

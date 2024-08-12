@@ -26,11 +26,6 @@ app.get("/level", async ({ query, set }) => {
 		return "Invalid image URL";
 	}
 
-	if (currentXP > totalXP) {
-		set.status = 400;
-		return "Current XP cannot be greater than total XP";
-	}
-
 	const levelImage = await createLevel({
 		level: level,
 		username: username,
