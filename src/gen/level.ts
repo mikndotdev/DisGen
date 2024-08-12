@@ -1,7 +1,10 @@
 import { join } from "node:path";
 import { createCanvas, loadImage, GlobalFonts } from "@napi-rs/canvas";
 
-GlobalFonts.registerFromPath(join(__dirname, "../assets/HSR.otf"), "HSR");
+const fontPath = join(cwd(), "assets", "HSR.otf");
+console.log(`Registering font from path: ${fontPath}`);
+
+GlobalFonts.registerFromPath(fontPath, "HSR");
 
 export async function createLevel({
 	level,
@@ -196,3 +199,7 @@ export async function createLevel({
 
 	return await canvas.encode("png");
 }
+function cwd(): string {
+	return process.cwd();
+}
+
