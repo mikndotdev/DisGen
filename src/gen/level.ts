@@ -1,10 +1,10 @@
 import { join } from "node:path";
 import { createCanvas, loadImage, GlobalFonts } from "@napi-rs/canvas";
 
-const fontPath = join(cwd(), "src", "assets", "HSR.otf");
+const fontPath = join(cwd(), "src", "assets", "SDK_JP_Web.otf");
 console.log(`Registering font from path: ${fontPath}`);
 
-GlobalFonts.registerFromPath(fontPath, "HSR");
+GlobalFonts.registerFromPath(fontPath, "SDK_JP_Web");
 
 export async function createLevel({
 	level,
@@ -67,19 +67,19 @@ export async function createLevel({
 	ctx.fill();
 	ctx.drawImage(avatarImage, 65, 65, 270, 270);
 
-	ctx.font = "50px HSR";
+	ctx.font = "50px SDK_JP_Web";
 	ctx.fillStyle = "#FFFFFF";
 	ctx.fillText(`Level ${level}`, 1350, 50);
 
 	if (rank === "1") {
 		ctx.drawImage(crown, 1380, 65, 50, 55);
-		ctx.font = "40px HSR";
+		ctx.font = "40px SDK_JP_Web";
 		ctx.fillStyle = "#FF7700";
 		ctx.fillText(`Rank ${rank}`, 1450, 110);
 	}
 
 	if (rank !== "1") {
-		ctx.font = "40px HSR";
+		ctx.font = "40px SDK_JP_Web";
 		ctx.fillStyle = "#FFFFFF";
 		ctx.fillText(`Rank ${rank}`, 1450, 105);
 	}
@@ -87,11 +87,11 @@ export async function createLevel({
 	const usernameTrunc =
 		username.length > 20 ? `${username.substring(0, 20)}...` : username;
 
-	ctx.font = "70px HSR";
+	ctx.font = "70px SDK_JP_Web";
 	ctx.fillStyle = "#FFFFFF";
 	ctx.fillText(`${usernameTrunc}`, 400, 170);
 
-	ctx.font = "40px HSR";
+	ctx.font = "40px SDK_JP_Web";
 	ctx.fillStyle = "#FFFFFF";
 	ctx.fillText(`${currentXP} XP`, 400, 230);
 
@@ -193,7 +193,7 @@ export async function createLevel({
 	ctx.fillStyle = "#FFB900";
 	ctx.fill();
 
-	ctx.font = "25px HSR";
+	ctx.font = "25px SDK_JP_Web";
 	ctx.fillStyle = "#FFFFFF";
 	ctx.fillText(`${totalXPNum - currentXPNum} to next level`, 1230, 305);
 
