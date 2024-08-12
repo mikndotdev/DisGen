@@ -1,7 +1,7 @@
 import { join } from "node:path";
 import { createCanvas, loadImage, GlobalFonts } from "@napi-rs/canvas";
 
-const fontPath = join(cwd(), "assets", "HSR.otf");
+const fontPath = join(cwd(), "src", "assets", "HSR.otf");
 console.log(`Registering font from path: ${fontPath}`);
 
 GlobalFonts.registerFromPath(fontPath, "HSR");
