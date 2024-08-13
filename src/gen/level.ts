@@ -254,7 +254,7 @@ export async function createLevel({
 	ctx.fill();
 
 	ctx.font = "25px SDK_JP_Web";
-	ctx.fillStyle = color;
+	ctx.fillStyle = `#${color}`;
 	ctx.fillText(`${totalXPNum - currentXPNum} to next level`, 1230, 305);
 
 	return await canvas.encode("png");
