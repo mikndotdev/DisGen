@@ -12,8 +12,10 @@ app.get("/level", async ({ query, set }) => {
 	const avatar = query.avatar
 	const bg = query.bg
 	const rank = query.rank
+	const mdAcc = query.mdAcc
+	const premium = query.premium
 
-	if (!level || !username || !totalXP || !currentXP || !avatar || !bg || !rank) {
+	if (!level || !username || !totalXP || !currentXP || !avatar || !bg || !rank || !mdAcc || !premium) {
 		set.status = 400;
 		return "Missing query parameters";
 	}
@@ -33,7 +35,9 @@ app.get("/level", async ({ query, set }) => {
 		currentXP: currentXP,
 		avatar: avatar,
 		bg: bg,
-		rank: rank
+		rank: rank,
+		acc: mdAcc,
+		premium: premium
 	});
 
 	set.headers['Content-Type'] = 'image/png';

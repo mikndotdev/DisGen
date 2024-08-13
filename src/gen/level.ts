@@ -14,6 +14,8 @@ export async function createLevel({
 	avatar,
 	bg,
 	rank,
+	acc,
+	premium,
 }: {
 	level: string;
 	username: string;
@@ -22,6 +24,8 @@ export async function createLevel({
 	avatar: string;
 	bg: string;
 	rank: string;
+	acc: string | "false";
+	premium: string | "false";
 }) {
 	const canvas = createCanvas(1600, 400);
 	const ctx = canvas.getContext("2d");
@@ -31,7 +35,12 @@ export async function createLevel({
 	const crown = await loadImage(
 		"https://cdn.mikn.dev/bot-assets/mikanbot/crown.png",
 	);
-
+	const mikan = await loadImage(
+		"https://mikn.dev/favicon.ico",
+	);
+	const heartMikan = await loadImage(
+		"https://cdn.mikn.dev/branding/MDHeart.png",
+	);
 	ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
 	const x = 35; // Rectangle X position
 	const y = 35; // Rectangle Y position
@@ -53,7 +62,7 @@ export async function createLevel({
 	const x2 = 1300; // Rectangle X position
 	const y2 = -20; // Rectangle Y position
 	const width2 = 330; // Rectangle width
-	const height2 = 150; // Rectangle height
+	const height2 = 165; // Rectangle height
 	const radius2 = 20; // Adjust the radius for more or less rounded corners
 
 	ctx.beginPath();
@@ -63,26 +72,75 @@ export async function createLevel({
 	ctx.arcTo(x2, y2 + height2, x2, y2, radius2);
 	ctx.arcTo(x2, y2, x2 + width2, y2, radius2);
 	ctx.closePath();
-	ctx.fillStyle = "#FFB900";
+	ctx.fillStyle = "#5a5a5a";
 	ctx.fill();
 	ctx.drawImage(avatarImage, 65, 65, 270, 270);
 
 	ctx.font = "50px SDK_JP_Web";
 	ctx.fillStyle = "#FFFFFF";
-	ctx.fillText(`Level ${level}`, 1350, 50);
+	ctx.fillText(`Level ${level}`, 1320, 55);
 
 	if (rank === "1") {
-		ctx.drawImage(crown, 1380, 65, 50, 55);
+		ctx.drawImage(crown, 1320, 70, 50, 55);
 		ctx.font = "40px SDK_JP_Web";
 		ctx.fillStyle = "#FF7700";
-		ctx.fillText(`Rank ${rank}`, 1450, 110);
+		ctx.fillText(`Rank ${rank}`, 1380, 115);
 	}
 
 	if (rank !== "1") {
 		ctx.font = "40px SDK_JP_Web";
 		ctx.fillStyle = "#FFFFFF";
-		ctx.fillText(`Rank ${rank}`, 1450, 105);
+		ctx.fillText(`Rank ${rank}`, 1320, 115);
 	}
+
+	if (premium) {
+		const x2 = 970; // Rectangle X position
+		const y2 = 10; // Rectangle Y position
+		const width2 = 300; // Rectangle width
+		const height2 = 60; // Rectangle height
+		const radius2 = 20; // Adjust the radius for more or less rounded corners
+	
+		ctx.beginPath();
+		ctx.moveTo(x2 + radius2, y2);
+		ctx.arcTo(x2 + width2, y2, x2 + width2, y2 + height2, radius2);
+		ctx.arcTo(x2 + width2, y2 + height2, x2, y2 + height2, radius2);
+		ctx.arcTo(x2, y2 + height2, x2, y2, radius2);
+		ctx.arcTo(x2, y2, x2 + width2, y2, radius2);
+		ctx.closePath();
+		ctx.fillStyle = "#A27229";
+		ctx.fill();
+
+		ctx.drawImage(heartMikan, 980, 15, 100, 50);
+
+		ctx.font = "25px SDK_JP_Web";
+		ctx.fillStyle = "#FFFFFF";
+		ctx.fillText("Premium User", 1075, 49);
+	}
+
+	if (acc) {
+		const x2 = 970; // Rectangle X position
+		const y2 = 75; // Rectangle Y position
+		const width2 = 300; // Rectangle width
+		const height2 = 60; // Rectangle height
+		const radius2 = 20; // Adjust the radius for more or less rounded corners
+	
+		ctx.beginPath();
+		ctx.moveTo(x2 + radius2, y2);
+		ctx.arcTo(x2 + width2, y2, x2 + width2, y2 + height2, radius2);
+		ctx.arcTo(x2 + width2, y2 + height2, x2, y2 + height2, radius2);
+		ctx.arcTo(x2, y2 + height2, x2, y2, radius2);
+		ctx.arcTo(x2, y2, x2 + width2, y2, radius2);
+		ctx.closePath();
+		ctx.fillStyle = "#0cc0df";
+		ctx.fill();
+
+		ctx.drawImage(mikan, 1000, 80, 50, 50);
+
+		ctx.font = "25px SDK_JP_Web";
+		ctx.fillStyle = "#FFFFFF";
+		ctx.fillText("MikanDev User", 1070, 113);
+	}
+
 
 	const usernameTrunc =
 		username.length > 20 ? `${username.substring(0, 20)}...` : username;
