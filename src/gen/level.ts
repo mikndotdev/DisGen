@@ -16,6 +16,7 @@ export async function createLevel({
 	rank,
 	acc,
 	premium,
+	color,
 }: {
 	level: string;
 	username: string;
@@ -26,6 +27,7 @@ export async function createLevel({
 	rank: string;
 	acc: string | "false";
 	premium: string | "false";
+	color: string;
 }) {
 	const canvas = createCanvas(1600, 400);
 	const ctx = canvas.getContext("2d");
@@ -252,7 +254,7 @@ export async function createLevel({
 	ctx.fill();
 
 	ctx.font = "25px SDK_JP_Web";
-	ctx.fillStyle = "#FFFFFF";
+	ctx.fillStyle = color;
 	ctx.fillText(`${totalXPNum - currentXPNum} to next level`, 1230, 305);
 
 	return await canvas.encode("png");
