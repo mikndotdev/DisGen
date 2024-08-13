@@ -250,11 +250,11 @@ export async function createLevel({
 		1.5 * Math.PI,
 	);
 	ctx.closePath();
-	ctx.fillStyle = "#FFB900";
+	ctx.fillStyle = `#${color}`;
 	ctx.fill();
 
 	ctx.font = "25px SDK_JP_Web";
-	ctx.fillStyle = `#${color}`;
+	ctx.fillStyle = "FFFFFF";
 	ctx.fillText(`${totalXPNum - currentXPNum} to next level`, 1230, 305);
 
 	return await canvas.encode("png");
