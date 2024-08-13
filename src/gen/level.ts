@@ -93,7 +93,7 @@ export async function createLevel({
 		ctx.fillText(`Rank ${rank}`, 1320, 115);
 	}
 
-	if (premium) {
+	if (premium === "true") {
 		const x2 = 970; // Rectangle X position
 		const y2 = 10; // Rectangle Y position
 		const width2 = 300; // Rectangle width
@@ -117,7 +117,7 @@ export async function createLevel({
 		ctx.fillText("Premium User", 1075, 49);
 	}
 
-	if (acc) {
+	if (acc === "true") {
 		const x2 = 970; // Rectangle X position
 		const y2 = 75; // Rectangle Y position
 		const width2 = 300; // Rectangle width
